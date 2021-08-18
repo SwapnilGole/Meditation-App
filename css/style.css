@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+ *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration:none;
+    outline:none;
+    border:none;
+} 
+/* scrollbar */
+::-webkit-scrollbar{
+    width:0.75rem;
+}
+::-webkit-scrollbar-track{
+    background:#898a8a ;
+}
+::-webkit-scrollbar-thumb{
+    background:var(--orange-color);
+}
+::-webkit-scrollbar-thumb:hover{
+    background:rgb(247, 196, 31);
+}
+.app{
+    min-height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    /* background: chocolate; */
+    /* padding:2rem; */
+}
+/* Video Container */
+.vid-container video{
+    /* display: none; */
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    /* height: 100vh; */
+    z-index:-1;
+}
+/* Common styling */
+.time-select,
+.sound-picker,
+.player-container{
+    height:60%;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    position: relative;
+}
+.sound-picker{
+    height:80%;
+}
+/* .player-container{
+    position: relative;
+} */
+
+/* time-select */
+.time-select button{
+    color:#fff;
+    font-size:1.5rem;
+    background: transparent;
+    border:2px solid #fff;
+    padding:0.5rem 1rem;
+    border-radius:0.5rem;
+    transition:all 0.3s linear;
+    cursor:pointer;
+    margin:1rem 0;
+}
+.time-select button:hover{
+    background:#fff;
+    color:#111;
+}
+.time-select .active{
+    color:#111;
+    background: #fff;
+}
+
+/* player container */
+.player-container svg{
+    position:absolute;
+    top:50%;
+    left:50%;
+    height:300px;
+    transform: translate(-50%,-50%) rotate(-90deg);
+    pointer-events: none;
+}
+.player-container img{
+    cursor:pointer;
+    width:100px;
+    height:100px;
+    filter: invert(1);
+}
+.player-container .time-display{
+    position:absolute;
+    bottom:-150%;
+    font-size:2rem;
+    color:#fff;
+}
+
+/* sound picker */
+.sound-picker button{
+    position: relative;
+    width:100px;
+    height:100px;
+    border:none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    margin:1rem 0;
+    transition: all 0.3s ease;
+}
+.sound-picker button::after{
+    color:#fff;
+    background: transparent;
+    position:relative;
+    bottom:0%;
+    font-size:1.15rem;
+    font-weight: 600;
+    /* border-radius: 50%; */
+}
+.sound-picker .active{
+    border:3px solid #fff;
+}
+.sound-picker img{
+    width:100%;
+    height:100%;
+    text-align: center;
+    cursor:pointer;
+}
+.sound-picker button:nth-child(1){
+    background: linear-gradient(to right, #1f79b6,#54b8fa );
+}
+.sound-picker button:nth-child(2){
+    background: linear-gradient(to right, #df7d2d ,#e9da10);
+}
+.sound-picker button:nth-child(3){
+    background: linear-gradient(to right, #e6f511,#d3b610 );
+}
+.sound-picker button:nth-child(4){
+    background: linear-gradient(to right, #ebe6e2 ,#7c7c7b);
+}
+.sound-picker button:nth-child(1):hover{
+    background: linear-gradient(to right,#54b8fa ,#1f79b6)
+}
+.sound-picker button:nth-child(2):hover{
+    background: linear-gradient(to right,#e9da10, #df7d2d );
+}
+.sound-picker button:nth-child(3):hover{
+    background: linear-gradient(to right,#d3b610 , #e6f511);
+}
+.sound-picker button:nth-child(4):hover{
+    background: linear-gradient(to right ,#7c7c7b, #ebe6e2);
+}
+.sound-picker button:nth-child(1)::after{
+    content:'Rain';
+}
+.sound-picker button:nth-child(2)::after{
+    content:'Beach';
+}
+.sound-picker button:nth-child(3)::after{
+    content:'Morning';
+}
+.sound-picker button:nth-child(4)::after{
+    content:'Night';
+}
+
+
+/* media queries */
+@media only screen and (max-width:1440px){
+    .time-select button{
+    font-size:1.15rem;
+    }
+    .player-container svg{
+    height:150px;
+    }
+    .player-container img{
+    width:60px;
+    height:60px;
+    }
+    .sound-picker button{
+    width:100px;
+    height:100px;
+    }
+    .sound-picker button::after{
+    font-size:1rem;
+    }   
+}
+
+@media only screen and (max-width:768px){
+    .app{
+    flex-direction: column;
+    }
+    .time-select,
+    .sound-picker,
+    .player-container{
+    flex-direction: row;
+    }
+    .player-container{
+        margin:0.5rem;
+    }
+    .player-container svg{
+    height:120px;
+    }
+    .time-select button{
+    margin:1rem;
+    }
+    .player-container img{
+    width:40px;
+    height:40px;
+    }
+    .player-container .time-display{
+    bottom:-10%;
+    font-size:1.5rem;
+    color:#fff;
+    }
+    .sound-picker button{
+    width:80px;
+    height:80px;
+    margin:1rem;
+    }
+    .sound-picker button::after{
+    font-size:1rem;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .app{
+    padding:1rem;
+    }
+    .time-select button{
+    font-size:1.15rem;
+    border:2px solid #fff;
+    padding:0.5rem 1rem;
+    margin:1rem 0.5rem;
+    }
+    .player-container svg{
+    height:100px;
+    }
+    .player-container .time-display{
+    font-size:1.25rem;
+    }
+    .sound-picker button{
+    width:80px;
+    height:80px;
+    margin:0.5rem;
+    }
+    .sound-picker button::after{
+    font-size:1rem;
+    }
+}
+
+@media only screen and (max-width:425px){
+    .time-select{
+    flex-direction:column;
+    }
+    .player-container img{
+    width:50px;
+    height:50px;
+    }
+    .time-select button{
+    font-size:1rem;
+    padding:0.5rem;
+    margin:0 0.5rem;
+    }
+    .player-container .time-display{
+    font-size:1.25rem;
+    }
+    .sound-picker button{
+    width:60px;
+    height:60px;
+    margin:0 0.25rem;
+    }
+    .sound-picker button::after{
+    font-size:0.8rem;
+    }
+}
+
+@media only screen and (max-width:300px){
+    .sound-picker{
+    flex-wrap: wrap;
+    }
+    .player-container svg{
+    height:80px;
+    }
+    .player-container img{
+    width:30px;
+    height:30px;
+    }
+    .player-container .time-display{
+    bottom:0;
+    font-size:1rem;
+    }
+}
